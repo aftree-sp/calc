@@ -26,22 +26,6 @@ jobs:
       - name: Recreate iOS platform (fix Xcode compatibility)
         run: |
           flutter create --platforms ios . --project-name calculator
-          # 写入正确的 AppDelegate.swift
-          cat > ios/Runner/AppDelegate.swift << 'EOF'
-          import UIKit
-          import Flutter
-
-          @main
-          @objc class AppDelegate: FlutterAppDelegate {
-            override func application(
-              _ application: UIApplication,
-              didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
-            ) -> Bool {
-              GeneratedPluginRegistrant.register(with: self)
-              return super.application(application, didFinishLaunchingWithOptions: launchOptions)
-            }
-          }
-          EOF
           flutter pub get
 
       - name: Build iOS (no codesign)
