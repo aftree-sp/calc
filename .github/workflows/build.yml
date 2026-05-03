@@ -23,15 +23,19 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Recreate iOS platform files
+        run: |
+          # 完全重新生成 iOS 目录，确保所有文件与 Flutter 3.32.8 兼容
+          rm -rf ios
+          flutter create --platforms ios . --project-name calculator
+
       - name: Build iOS (no codesign)
         run: flutter build ios --release --no-codesign
 
       - name: Create IPA
         run: |
-          # 从 archive 中提取 .app
-          APP_PATH="build/ios_archive/Runner.xcarchive/Products/Applications/Runner.app"
           mkdir -p Payload
-          cp -r "$APP_PATH" Payload/
+          cp -r build/ios/iphoneos/Runner.app Payload/
           zip -r build/calculator.ipa Payload
           rm -rf Payload
 
