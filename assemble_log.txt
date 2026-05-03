@@ -1,9 +1,0 @@
-﻿flutter.bat : Flutter assets will be downloaded from https://mirrors.tuna.tsinghua.edu.cn/flutter. Make sure you trust 
-this source!
-At line:1 char:39
-+ ... tictactoe'; & 'C:\flutter\bin\flutter.bat' assemble --define=BuildMod ...
-+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (Flutter assets ...st this source!:String) [], RemoteException
-    + FullyQualifiedErrorId : NativeCommandError
- 
-No target named ".windows" defined.
