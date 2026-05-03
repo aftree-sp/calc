@@ -23,18 +23,38 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Recreate iOS platform (fix Xcode compatibility)
+      - name: Recreate iOS platform
         run: |
           flutter create --platforms ios . --project-name calculator
           flutter pub get
 
-      - name: Build iOS (no codesign)
-        run: flutter build ios --release --no-codesign
+      - name: Build iOS with xcodebuild (no codesign)
+        run: |
+          # 先用 flutter assemble 生成 Xcode 所需的 Dart 产物
+          flutter assemble \
+            --define=BuildMode=release \
+            --output build/ios_framework \
+            ios_framework_debug
+
+          # 用 xcodebuild 直接构建，绕过 flutter build ios 的自动升级
+          xcodebuild \
+            -workspace ios/Runner.xcworkspace \
+            -scheme Runner \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath build/ios_derived \
+            -archivePath build/ios_archive/Runner.xcarchive \
+            archive \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO
 
       - name: Create IPA
         run: |
+          # 从 archive 中提取 .app
+          APP_PATH="build/ios_archive/Runner.xcarchive/Products/Applications/Runner.app"
           mkdir -p Payload
-          cp -r build/ios/iphoneos/Runner.app Payload/
+          cp -r "$APP_PATH" Payload/
           zip -r build/calculator.ipa Payload
           rm -rf Payload
 
