@@ -10,6 +10,8 @@
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		97C146F31CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146F21CF9000F007C117D /* Assets.xcassets */; };
+		7AFA3C8F1D35360C0083082E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFA3C8E1D35360C0083082E /* AppDelegate.swift */; };
+		97C146FE1CF9000F007C117D /* GeneratedPluginRegistrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* GeneratedPluginRegistrant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -169,6 +171,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AFA3C8F1D35360C0083082E /* AppDelegate.swift in Sources */,
+				97C146FE1CF9000F007C117D /* GeneratedPluginRegistrant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
