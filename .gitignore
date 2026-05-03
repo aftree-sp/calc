@@ -1,0 +1,31 @@
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Flutter/GeneratedPluginRegistrant.swift
+ios/Runner/Runner-Bridging-Header.h
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+
+# General
+.DS_Store
+.atom/
+.idea/
+.vscode/
+*.iml
+*.swp
+
+# Artifact
+*.ipa
+*.dSYM.zip
+*.dSYM
